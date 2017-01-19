@@ -2,14 +2,25 @@ var React = require("react");
 var ReactDOM = require("react-dom");
 
 var Hello = React.createClass({
-  render: function () {
-    return (
+  render: function() {
+  console.log("Debug is o the table");
+  var usernames = ["Mauricio", "Luciana", "Sara", "Eurice"];  
+  return (
       <div>
       <div>Hello ReactJS Program!</div>
-      <div>Welcome, {this.props.username}</div>
+      <Welcome usernames={usernames}/>
       </div>   
     )
   }
 });
 
-ReactDOM.render(<Hello username="Mauricio"/>, document.getElementById("app"));
+var Welcome = React.createClass({
+  render: function() {
+   var usernames = this.props.usernames.map(function(username) { return <div>Welcome, {username}</div>; }); 
+   return (
+      <div>{usernames}</div>
+    )
+  }
+});
+ReactDOM.render(<Hello/>, document.getElementById("app"));
+
