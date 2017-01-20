@@ -6,6 +6,7 @@ var Hello = function(props) {
     <div>
     <div>Hello ReactJS Program!</div>
     <Welcome usernames={props.usernames}/>
+    <Time>12h30</Time>
     </div>
   );
 } 
@@ -17,5 +18,10 @@ var Welcome = function(props) {
     <div>{usernames}</div>
   );
 }
+
+var Time = function(props) {
+  return (<div><strong>{props.children}</strong></div>);
+}
+
 ReactDOM.render(<Hello usernames="Mauricio;Sara"/>, document.getElementById("app"));
 
